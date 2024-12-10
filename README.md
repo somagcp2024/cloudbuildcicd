@@ -1,2 +1,2 @@
 # cloudbuildcicd
-Testing with cloud function
+Testing with cloud run function.

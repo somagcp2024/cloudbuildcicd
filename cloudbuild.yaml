@@ -21,8 +21,7 @@ steps:
 images:
   - us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:latest
   
-logging: CLOUD_LOGGING_ONLY
-# Optional: Use regional user-owned bucket
+# Specify options
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 

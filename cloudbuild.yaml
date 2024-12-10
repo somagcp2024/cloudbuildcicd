@@ -1,7 +1,7 @@
 steps:
 # Step 1: Build the Docker Image
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: [ 'builds', 'submit', '--region','us-central1','--tag','us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:v3', '.' ]
+  args: [ 'builds', 'submit', '--region','us-central1','--tag','us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:v1', '.' ]
 
 # Step 2: Deployment to Cloud Run after image is pushed
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -10,17 +10,14 @@ steps:
   - 'deploy'
   - 'my-service2'  # Replace with your service name
   - '--image'
-  - 'us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:v3'
+  - 'us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:v1'
   - '--region'
   - 'us-central1'  # You can change this if you want to deploy to a different region
   - '--platform'
   - 'managed'
   # Optional: if you want to allow unauthenticated access
   - '--allow-unauthenticated'
-# Store images in Google Artifact Registry 
-images:
-  - us-central1-docker.pkg.dev/coral-mission-443817-c0/flaskapp/image:latest
-  
+ 
 # Specify options
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
